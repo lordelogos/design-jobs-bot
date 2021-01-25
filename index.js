@@ -79,15 +79,15 @@ const getJobs = () => {
 const displayJobs = () => {
 	console.log("check twitter");
 	// display a job every 10 seconds
-	// uiDesign.statuses.map((ui) =>
-	// 	setTimeout(() => retweet(ui.id_str), 1000 * 10)
-	// );
-	// productDesign.statuses.map((pr) =>
-	// 	setTimeout(() => retweet(pr.id_str), 1000 * 10)
-	// );
-	// graphicDesign.statuses.map((gr) =>
-	// 	setTimeout(() => retweet(gr.id_str), 1000 * 10)
-	// );
+	uiDesign.statuses.map((ui) =>
+		setTimeout(() => retweet(ui.id_str), 1000 * 10)
+	);
+	productDesign.statuses.map((pr) =>
+		setTimeout(() => retweet(pr.id_str), 1000 * 10)
+	);
+	graphicDesign.statuses.map((gr) =>
+		setTimeout(() => retweet(gr.id_str), 1000 * 10)
+	);
 };
 
 const jobSearch = () => {
