@@ -5,7 +5,7 @@ let config = require("./config");
 console.log("bot is running");
 let T = new Twit(config);
 
-let uiDesign, productDesign, graphicDesign;
+let uiDesign, productDesign, productDesign2, graphicDesign, graphicDesign2;
 
 // For retweet mentions
 let stream = T.stream("statuses/filter", { track: "@Remotejobs21" });
@@ -54,6 +54,21 @@ const productFetch = () => {
 	return T.get("search/tweets", query, search);
 };
 
+const productFetch2 = () => {
+	let query = {
+		q:
+			"hiring for product design since:2020-12-01 -filter:replies -filter:videos",
+		count: 20,
+		lang: "en",
+	};
+
+	const search = (err, data, response) => {
+		productDesign2 = data;
+	};
+
+	return T.get("search/tweets", query, search);
+};
+
 // Graphic design
 const graphicFetch = () => {
 	let query = {
@@ -69,11 +84,28 @@ const graphicFetch = () => {
 	return T.get("search/tweets", query, search);
 };
 
+const graphicFetch2 = () => {
+	let query = {
+		q:
+			"hiring for graphic design since:2020-12-01 -filter:replies -filter:videos",
+		count: 20,
+		lang: "en",
+	};
+
+	const search = (err, data, response) => {
+		graphicDesign2 = data;
+	};
+
+	return T.get("search/tweets", query, search);
+};
+
 // To make it run every hour
 const getJobs = () => {
 	uiFetch();
 	productFetch();
+	productFetch2();
 	graphicFetch();
+	graphicFetch2();
 };
 
 const displayJobs = () => {
@@ -87,6 +119,12 @@ const displayJobs = () => {
 	);
 	graphicDesign.statuses.map((gr) =>
 		setTimeout(() => retweet(gr.id_str), 1000 * 10)
+	);
+	productDesign2.statuses.map((pr2) =>
+		setTimeout(() => retweet(pr2.id_str), 1000 * 10)
+	);
+	graphicDesign2.statuses.map((gr2) =>
+		setTimeout(() => retweet(gr2.id_str), 1000 * 10)
 	);
 };
 
