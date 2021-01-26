@@ -1,20 +1,20 @@
 {
-  "name": "design-bot",
-  "version": "1.0.0",
-  "description": "A twitter bot for RT design jobs",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "twitter-bot",
-    "job-bot",
-    "bot",
-    "node-bot"
-  ],
-  "author": "Paul Ehikhuemen",
-  "license": "ISC",
-  "dependencies": {
-    "twit": "^2.2.11"
-  }
+	"name": "design-bot",
+	"version": "1.0.0",
+	"description": "A twitter bot for RT design jobs",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"twitter-bot",
+		"jobs-bot",
+		"bot",
+		"node-bot"
+	],
+	"author": "Paul Ehikhuemen",
+	"license": "ISC",
+	"dependencies": {
+		"twit": "^2.2.11"
+	}
 }
