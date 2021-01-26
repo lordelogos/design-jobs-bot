@@ -112,19 +112,29 @@ const displayJobs = () => {
 	console.log("check twitter");
 	// display a job every 10 seconds
 	uiDesign.statuses.map((ui) =>
-		setTimeout(() => retweet(ui.id_str), 1000 * 10)
+		setTimeout(function () {
+			retweet(ui.id_str);
+		}, 1000 * 10)
 	);
 	productDesign.statuses.map((pr) =>
-		setTimeout(() => retweet(pr.id_str), 1000 * 10)
+		setTimeout(function () {
+			retweet(pr.id_str);
+		}, 1000 * 10)
 	);
 	graphicDesign.statuses.map((gr) =>
-		setTimeout(() => retweet(gr.id_str), 1000 * 10)
+		setTimeout(function () {
+			retweet(gr.id_str);
+		}, 1000 * 10)
 	);
 	productDesign2.statuses.map((pr2) =>
-		setTimeout(() => retweet(pr2.id_str), 1000 * 10)
+		setTimeout(function () {
+			retweet(pr2.id_str);
+		}, 1000 * 10)
 	);
 	graphicDesign2.statuses.map((gr2) =>
-		setTimeout(() => retweet(gr2.id_str), 1000 * 10)
+		setTimeout(function () {
+			retweet(gr2.id_str);
+		}, 1000 * 10)
 	);
 };
 
