@@ -18,10 +18,10 @@ const retweet = (arg) => {
 	T.post("statuses/retweet/:id", id, retweetCallback);
 };
 
-// stream.on("tweet", function (tweet) {
-// 	// mention function to run here
-// 	retweet(tweet.in_reply_to_status_id_str);
-// });
+stream.on("tweet", function (tweet) {
+	// mention function to run here
+	retweet(tweet.in_reply_to_status_id_str);
+});
 
 // For search and retweet
 // UI design
