@@ -8,7 +8,7 @@ let T = new Twit(config);
 let uiDesign, productDesign, productDesign2, graphicDesign, graphicDesign2;
 
 // For retweet mentions
-let stream = T.stream("statuses/filter", { track: "@Remotejobs21" });
+let stream = T.stream("statuses/filter", { track: "@designjobsbot" });
 
 const retweet = (arg) => {
 	let id = { id: `${arg}` };
