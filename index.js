@@ -1,6 +1,7 @@
 let Twit = require("twit");
 let fs = require("fs");
 let config = require("./config");
+const axios = require("axios");
 
 console.log("bot is running");
 let T = new Twit(config);
@@ -15,6 +16,16 @@ const retweet = (arg) => {
 	let retweetCallback = (err, data, response) => {
 		//do something after RT
 	};
+	axios
+		.get(
+			"https://api.telegram.org/bot1627912531:AAFMTLWMWhaV4tknQeRihIozu6wFoqbLSHo/sendMessage?chat_id=1111509292&text=bot%20just%retweeted"
+		)
+		.then((response) => {
+			console.log("retweeted");
+		})
+		.catch((error) => {
+			console.log(error);
+		});
 	T.post("statuses/retweet/:id", id, retweetCallback);
 };
 

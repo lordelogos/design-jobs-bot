@@ -15,6 +15,7 @@
 	"author": "Paul Ehikhuemen",
 	"license": "ISC",
 	"dependencies": {
+		"axios": "^0.21.1",
 		"twit": "^2.2.11"
 	}
 }
