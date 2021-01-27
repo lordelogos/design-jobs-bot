@@ -2,6 +2,7 @@ let Twit = require("twit");
 let fs = require("fs");
 let config = require("./config");
 const axios = require("axios");
+const bearer = require("./bearer_token");
 
 console.log("bot is running");
 let T = new Twit(config);
@@ -23,15 +24,25 @@ const retweet = (arg) => {
 stream.on("tweet", function (tweet) {
 	// mention function to run here
 	axios
-		.get(
-			"https://api.telegram.org/bot1627912531:AAFMTLWMWhaV4tknQeRihIozu6wFoqbLSHo/sendMessage?chat_id=1111509292&text=bot%20just%20retweeted"
-		)
-		.then((response) => {
-			console.log("retweeted");
+		.get("https://api.twitter.com/2/tweets/1354193399742685184", {
+			headers: {
+				Authorization: `Bearer ${bearer.token}`,
+			},
 		})
-		.catch((error) => {
-			console.log(error);
-		});
+		.then((res) => {
+			axios
+				.get(
+					`https://api.telegram.org/bot1627912531:AAFMTLWMWhaV4tknQeRihIozu6wFoqbLSHo/sendMessage?chat_id=1111509292&text=RT\n${res.data.data.text}`
+				)
+				.then((response) => {
+					console.log("retweeted");
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		})
+		.catch(console.log);
+
 	retweet(tweet.in_reply_to_status_id_str);
 });
 
