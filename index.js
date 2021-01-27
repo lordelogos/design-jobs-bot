@@ -16,9 +16,15 @@ const retweet = (arg) => {
 	let retweetCallback = (err, data, response) => {
 		//do something after RT
 	};
+
+	T.post("statuses/retweet/:id", id, retweetCallback);
+};
+
+stream.on("tweet", function (tweet) {
+	// mention function to run here
 	axios
 		.get(
-			"https://api.telegram.org/bot1627912531:AAFMTLWMWhaV4tknQeRihIozu6wFoqbLSHo/sendMessage?chat_id=1111509292&text=bot%20just%retweeted"
+			"https://api.telegram.org/bot1627912531:AAFMTLWMWhaV4tknQeRihIozu6wFoqbLSHo/sendMessage?chat_id=1111509292&text=bot%20just%20retweeted"
 		)
 		.then((response) => {
 			console.log("retweeted");
@@ -26,11 +32,6 @@ const retweet = (arg) => {
 		.catch((error) => {
 			console.log(error);
 		});
-	T.post("statuses/retweet/:id", id, retweetCallback);
-};
-
-stream.on("tweet", function (tweet) {
-	// mention function to run here
 	retweet(tweet.in_reply_to_status_id_str);
 });
 
