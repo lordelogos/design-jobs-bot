@@ -24,11 +24,14 @@ const retweet = (arg) => {
 stream.on("tweet", function (tweet) {
 	// mention function to run here
 	axios
-		.get(`https://api.twitter.com/2/tweets/${tweet.in_reply_to_status_id}`, {
-			headers: {
-				Authorization: `Bearer ${bearer.token}`,
-			},
-		})
+		.get(
+			"https://api.twitter.com/2/tweets/" + tweet.in_reply_to_status_id_str,
+			{
+				headers: {
+					Authorization: `Bearer ${bearer.token}`,
+				},
+			}
+		)
 		.then((res) => {
 			axios
 				.get(
